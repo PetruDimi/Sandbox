@@ -1,0 +1,25 @@
+.main {
+  border: 0px solid darkgreen;
+  display: inline-block;
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background-color: rgba(24, 23, 23, 0.903);
+  text-align: center;
+  overflow: auto;
+}
+
+.title {
+  background-color: darkgreen;
+  color: white;
+  font-weight: bolder;
+  height: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .main {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
