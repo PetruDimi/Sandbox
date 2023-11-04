@@ -1,0 +1,34 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: auto 30%;
+}
+
+label {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: darkgreen;
+}
+
+input,
+textarea {
+  width: 350px;
+  height: 80px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  
+}
+
+.buttons{
+    margin-top: 10px;
+    display: flex;
+    
+}
+
+.buttons button{
+    /* border: 10px solid green; */
+    margin-left: 10px;
+}
