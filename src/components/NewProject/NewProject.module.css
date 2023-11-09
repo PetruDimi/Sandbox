@@ -3,7 +3,7 @@ form {
   flex-direction: column;
   align-items: center;
   width: 50%;
-  margin: auto 30%;
+  margin: auto;
 }
 
 label {
@@ -32,4 +32,16 @@ textarea {
 .buttons button {
   /* border: 10px solid green; */
   margin-left: 10px;
+}
+
+@media screen and (max-width: 850px) {
+  form {
+    margin: auto 40%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  form {
+    margin: auto 25%;
+  }
 }

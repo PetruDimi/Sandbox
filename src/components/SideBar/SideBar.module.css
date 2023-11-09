@@ -3,8 +3,8 @@
   display: inline-block;
   position: fixed;
   height: 100%;
-  width: 240px;
-  background-color: rgba(24, 23, 23, 0.903);
+  width: 230px;
+  background-color:lightgreen;
   text-align: center;
   overflow: auto;
 }
@@ -16,8 +16,27 @@
   height: 30px;
 }
 
+ul{
+  display: flex;
+  flex-direction: column;
+  color: black;
+  list-style: none;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+li{
+  padding: 6px;
+}
+
+li:hover{
+  background-color: black;
+  color: lightgreen;
+}
+
 @media screen and (max-width: 700px) {
   .main {
+    text-align: center;
     width: 100%;
     height: auto;
     position: relative;
