@@ -30,7 +30,16 @@ const NewProject = (props) => {
     });
   };
 
+  let formIsValid = false
+  if(data.title && data.description && data.date){
+    formIsValid = true
+  }
+
   const submitHandler = (e) => {
+    if(!formIsValid){
+      return
+    }
+
     e.preventDefault();
     props.onSaveData(data);
     setData(defaultData);
@@ -53,7 +62,7 @@ const NewProject = (props) => {
       <input onChange={dateChange} value={data.date} id="date" type="date" />
 
       <div className={classes.buttons}>
-        <Button btnName="Save" type="submit" />
+         <Button btnName="Save" type="submit" disabled={!formIsValid}/>
         <Button btnName="Cancel" type="button" click={props.cancel} />
       </div>
     </form>

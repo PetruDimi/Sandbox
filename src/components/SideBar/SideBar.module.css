@@ -16,13 +16,13 @@
   height: 30px;
 }
 
-ul{
+.ul{
   display: flex;
   flex-direction: column;
   color: black;
   list-style: none;
   font-weight: bold;
-  margin-right: 30px;
+  margin-top: 1rem;
 }
 
 li{

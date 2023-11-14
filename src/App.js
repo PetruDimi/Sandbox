@@ -19,6 +19,8 @@ function App() {
     });
   };
 
+  console.log(newPro);
+
   return (
     <div className={classes.main}>
       <SideBar new={newProHandler} list={newData} />
