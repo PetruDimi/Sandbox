@@ -2,9 +2,12 @@ import classes from "./NewProject.module.css";
 
 import Button from "../Button/Button";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ProjectContext from "../../context/ProjectContext";
 
 const NewProject = (props) => {
+  const projectCtx = useContext(ProjectContext);
+
   const defaultData = {
     title: "",
     description: "",
@@ -30,19 +33,21 @@ const NewProject = (props) => {
     });
   };
 
-  let formIsValid = false
-  if(data.title && data.description && data.date){
-    formIsValid = true
+  let formIsValid = false;
+  if (data.title && data.description && data.date) {
+    formIsValid = true;
   }
 
   const submitHandler = (e) => {
-    if(!formIsValid){
-      return
+    if (!formIsValid) {
+      return;
     }
 
     e.preventDefault();
-    props.onSaveData(data);
+    const dataConfig = { ...data, id: data.description.length + Math.random()};
+    projectCtx.addItem(dataConfig);
     setData(defaultData);
+    props.cancel();
   };
 
   return (
@@ -62,7 +67,7 @@ const NewProject = (props) => {
       <input onChange={dateChange} value={data.date} id="date" type="date" />
 
       <div className={classes.buttons}>
-         <Button btnName="Save" type="submit" disabled={!formIsValid}/>
+        <Button btnName="Save" type="submit" disabled={!formIsValid} />
         <Button btnName="Cancel" type="button" click={props.cancel} />
       </div>
     </form>

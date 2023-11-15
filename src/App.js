@@ -7,33 +7,31 @@ import { useState } from "react";
 import classes from "./App.module.css";
 function App() {
   const [newPro, setNewPro] = useState(false);
-  const [newData, setNewData] = useState([]);
+  const [selectedProject, setSelectedProject] = useState();
+
+  const selectedProjectHandler = (id) => {
+    setSelectedProject(id)
+  };
 
   const newProHandler = () => {
     setNewPro(true);
   };
+  console.log(selectedProject);
 
-  const newDataHandler = (incomingData) => {
-    setNewData((prevData) => {
-      return [...prevData, incomingData];
-    });
-  };
-
-  console.log(newPro);
+  const main = !newPro ? (
+    <MainPage new={newProHandler} />
+  ) : (
+    <NewProject
+      cancel={() => {
+        setNewPro(false);
+      }}
+    />
+  );
 
   return (
     <div className={classes.main}>
-      <SideBar new={newProHandler} list={newData} />
-      {!newPro ? (
-        <MainPage new={newProHandler} />
-      ) : (
-        <NewProject
-          onSaveData={newDataHandler}
-          cancel={() => {
-            setNewPro(false);
-          }}
-        />
-      )}
+      <SideBar new={newProHandler} onSelect={selectedProjectHandler} />
+      {main}
     </div>
   );
 }
